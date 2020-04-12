@@ -16,7 +16,7 @@ config.debug = true; // for additional logging / debugging
 config.watch = {
 
   // see https://gekko.wizb.it/docs/introduction/supported_exchanges.html
-  exchange: 'binance',
+  exchange: 'poloniex',//'binance',
   currency: 'USDT',
   asset: 'BTC',
 
@@ -32,8 +32,8 @@ config.watch = {
 
 config.tradingAdvisor = {
   enabled: true,
-  method: 'MACD',
-  candleSize: 60,
+  method: 'LuayStrategy',
+  candleSize: 15,
   historySize: 10,
 }
 
