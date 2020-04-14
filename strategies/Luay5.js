@@ -2,7 +2,7 @@
 //3 hours
 var convnetjs = require('convnetjs');
 var math = require('mathjs');
-
+var fs = require('fs');
 
 var log = require('../core/log.js');
 
@@ -38,6 +38,8 @@ var strategy = {
 
     init : function() {
   console.log("init");
+
+
   var BBSettings={
     TimePeriod:5,
     NbDevUp: 5,
@@ -49,6 +51,17 @@ var strategy = {
       },
     
       update : function(candle) {
+
+
+
+        console.log(candle)
+//         fs.appendFile('mynewfile1.txt', 
+// this.candle.start+","+Math.round(this.SMMA.result)+"\n" , function (err) {
+//           if (err) throw err;
+//           console.log('Saved!');
+//         });
+
+
         this.BB.update(this.candle.close)
         this.SMMA.update(this.candle.close)
         // console.log(this.BB.prices) //[]

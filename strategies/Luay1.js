@@ -1,5 +1,8 @@
 
 //3 hours
+//40 min
+//45 min 22.9
+//90 8.7
 var convnetjs = require('convnetjs');
 var math = require('mathjs');
 
