@@ -38,7 +38,7 @@ api-keys.js
 # Folders & files to ignore
 
 node_modules
-# candles.csv
+# candles.csv 
 # cexio.db
 # history
 # TMP_*
