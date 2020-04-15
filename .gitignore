@@ -12,28 +12,28 @@
 
 # OS or Editor folders
 .DS_Store
-Thumbs.db
-config.js
+# Thumbs.db
+# config.js
 api-keys.js
-.cache
-.project
-.settings
-.tmproj
-nbproject
-*.sublime-project
-*.sublime-workspace
+# .cache
+# .project
+# .settings
+# .tmproj
+# nbproject
+# *.sublime-project
+# *.sublime-workspace
 
 # Dreamweaver added files
-_notes
-dwsync.xml
+# _notes
+# dwsync.xml
 
 # Komodo
-*.komodoproject
-.komodotools
+# *.komodoproject
+# .komodotools
 
 # Espresso
-*.esproj
-*.espressostorage
+# *.esproj
+# *.espressostorage
 
 # Folders & files to ignore
 
@@ -45,8 +45,8 @@ node_modules
 # .idea
 # volumes
 # config.js
-config-*.js
-private-*.js
-private-*.toml
+# config-*.js
+# private-*.js
+# private-*.toml
 SECRET-api-keys.json
-exchange/nusadua
+# exchange/nusadua
