@@ -33,7 +33,7 @@ var strategy = {
       update : function(candle) {
         console.log("update");
         this.SMMA.update( candle.close );
-        // this.lastSMMA=this.smmaFast  // to enhance 
+        this.lastSMMA=this.smmaFast  // to enhance 
         this.smmaFast = this.SMMA.result;
         
         console.log("smmaFast",this.smmaFast)
@@ -53,7 +53,7 @@ var strategy = {
         if(this.smmaFast>this.lastSMMA+this.diffPoints)
         {
             console.log("diff2 : ",this.smmaFast-this.lastSMMA)
-            this.lastSMMA=this.smmaFast
+            // this.lastSMMA=this.smmaFast
             this.lastLongClose=candle.close
             this.advice('long');
 
