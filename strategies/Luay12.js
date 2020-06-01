@@ -56,6 +56,7 @@ var strategy = {
           {
               this.lastOrderPrice=this.candle.close
               this.advice('long')
+              console.log('Action---------->','long')
           }
           if(this.SMAshort.result>this.SMAlong.result&&
             tan<lowTan&&
@@ -66,6 +67,7 @@ var strategy = {
             )
           {
               this.advice('short')
+              console.log('Action---------->','short')
           }
 
  
