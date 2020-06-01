@@ -13,6 +13,30 @@
 */
 
 // req's
+
+
+// [SMA]
+// long = 1000
+// short = 50
+
+// [BULL]
+// rsi = 20
+// high = 90
+// low = 10
+// mod_high = 5
+// mod_low = -5
+
+// [BEAR]
+// rsi = 15
+// high = 30
+// low = 10
+// mod_high = 15
+// mod_low  = -1
+
+// [ADX]
+// adx = 30
+// high = 90
+// low = 20
 var log = require('../core/log.js');
 var config = require('../core/util.js').getConfig();
 

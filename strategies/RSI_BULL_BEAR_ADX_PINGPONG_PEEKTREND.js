@@ -24,6 +24,24 @@
 */
 
 // req's
+
+// # SMA Trends
+// SMA_long = 1000
+// SMA_short = 50
+
+// # BULL
+// BULL_RSI = 20
+// BULL_RSI_high = 90
+// BULL_RSI_low = 10
+
+// # BEAR
+// BEAR_RSI = 15
+// BEAR_RSI_high = 30
+// BEAR_RSI_low = 10
+
+// # BULL/BEAR is defined by the longer SMA trends
+// # if SHORT over LONG = BULL
+// # if SHORT under LONG = BEAR
 var log = require('../core/log.js');
 var config = require('../core/util.js').getConfig();
 
