@@ -24,6 +24,8 @@ var strategy = {
 
 
     init : function() {
+      this.advice('short')
+              console.log('Action---------->','short')
   console.log("init");
   this.maxtan=0
  
