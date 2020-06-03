@@ -78,7 +78,7 @@ var strat = {
 	/* CHECK */
 	check: function()
 	{
-		console.log("test")
+		
 
 		// get all indicators
 		let ind = this.tulipIndicators,
@@ -118,6 +118,7 @@ var strat = {
 			this.resetTrend();
 			this.trend.direction = 'up';
 			this.advice('long');
+			console.log("Operation====>Long")
 			//log.debug('go long');
 		}
 
@@ -138,6 +139,7 @@ var strat = {
 			this.resetTrend();
 			this.trend.direction = 'down';
 			this.advice('short');
+			console.log("Operation====>Short")
 		}
 
 		if(this.debug)
