@@ -1,0 +1,8 @@
+interval = 3
+
+[thresholds]
+low = 50
+high = 75
+persistence = 6
+minProf= 0.004
+maxLoss = 0.004

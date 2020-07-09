@@ -22,6 +22,9 @@ var method = {};
 
 // prepare everything our method needs
 method.init = function() {
+  console.log("settings", this.settings)
+  console.log("tradingAdvisor", this.tradingAdvisor)
+  lastLongPrice=0
   this.interval = this.settings.interval;
 
   this.trend = {
@@ -66,7 +69,8 @@ method.log = function() {
 	log.debug("StochRSI Value:\t\t" + this.stochRSI.toFixed(2));
 }
 
-method.check = function() {
+method.check = function(candle) {
+  // console.log("candle : ",candle)
 	if(this.stochRSI > this.settings.thresholds.high) {
 		// new trend detected
 		if(this.trend.direction !== 'high')
@@ -80,13 +84,17 @@ method.check = function() {
 		this.trend.duration++;
 
 		log.debug('In high since', this.trend.duration, 'candle(s)');
-
+    console.log('In high since', this.trend.duration, 'candle(s)');
 		if(this.trend.duration >= this.settings.thresholds.persistence)
 			this.trend.persisted = true;
 
 		if(this.trend.persisted && !this.trend.adviced) {
-			this.trend.adviced = true;
-			this.advice('short');
+      this.trend.adviced = true;
+      if(this.candle.close>lastLongPrice*(1 + this.settings.thresholds.minProf) || this.candle.close < lastLongPrice* (1 - this.settings.thresholds.maxLoss)){
+        this.advice('short');
+        lastLongPrice=0
+        console.log("lastLongPrice : ",lastLongPrice)
+      }
 		} else
 			this.advice();
 
@@ -103,21 +111,24 @@ method.check = function() {
 
 		this.trend.duration++;
 
-		log.debug('In low since', this.trend.duration, 'candle(s)');
+    log.debug('In low since', this.trend.duration, 'candle(s)');
+    console.log('In low since', this.trend.duration, 'candle(s)');
 
 		if(this.trend.duration >= this.settings.thresholds.persistence)
 			this.trend.persisted = true;
 
 		if(this.trend.persisted && !this.trend.adviced) {
 			this.trend.adviced = true;
-			this.advice('long');
+      this.advice('long');
+      lastLongPrice=this.candle.close
+      console.log("lastLongPrice : ",lastLongPrice)
 		} else
 			this.advice();
 
 	} else {
 		// trends must be on consecutive candles
 		this.trend.duration = 0;
-		log.debug('In no trend');
+		console.log('In no trend');
 
 		this.advice();
 	}

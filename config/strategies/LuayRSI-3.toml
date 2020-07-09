@@ -1,0 +1,26 @@
+[SMA]
+long = 100
+short = 5
+
+[BULL]
+rsi = 9
+high = 84
+low = 20
+mod_high = 5
+mod_low = -5
+
+[BEAR]
+rsi = 15
+high = 75
+low = 9
+mod_high = 15
+mod_low  = -5
+
+[ADX]
+adx = 3
+high = 70
+low = 50
+
+[thresholds]
+minProf= 0
+maxLoss = 0.004
