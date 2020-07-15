@@ -1277,11 +1277,9 @@ Total: ".scalar @warmup."
           print $fh2 join ("\n",$grun);
           close $fh2;
         }
+        my @profit = $grun =~ /(?<=simulated profit:\t\t )[0-9.\-][0-9.\-]* $sets[1] \((.*)(?=\%\))/;
         my @yearly = $grun =~ /(?<=simulated yearly profit:\t )[0-9.\-][0-9.\-]* $sets[1] \((.*)(?=\%\))/;
         my @trades = $grun =~ /(?<=trades:\t\t )(.*?)(?=\n)/;
-
-        my @profit= $grun =~ /(?<=profit:\t\t )(.?)(?=U)/;
-        my @Yearly = $grun =~ /(?<=simulated yearly profit:\t\t )(.?)(?=\n)/;
         my @period = $grun =~ /(?<=timespan:\t\t\t )(.*?)(?=\n)/;
         my @start = $grun =~ /start time:\s+\K(.*)/;
         my @end = $grun =~ /end time:\s+\K(.*)/;
@@ -1470,8 +1468,7 @@ Total: ".scalar @warmup."
         }
         else {
           my @error = $grun =~ /(?<=Error:\n\n).*/g;
-          @error = $grun;
-          print "$sets[1]-$sets[2]  Backtest is failed. @error\n";
+          print "$sets[1]-$sets[2] Backtest is failed. @error\n";
         }
         if (-e "backtest.dat") {
           open(my $fh, '<:encoding(UTF-8)', "backtest.dat") or die "Could not open file '!";
